@@ -55,10 +55,6 @@ cheese_choices = [
     ]
 class Order(models.Model):
     
-
-    
-
-    
     pizza_type = models.CharField(max_length=30, choices=pizza_type_choices, default='Margherita')
     pizza_size = models.CharField(max_length=30, choices=pizza_size_choices, default='Small-8"/20 cm')
     toppings = MultiSelectField(choices=toppings_choices, default=toppings_choices[0][0])
