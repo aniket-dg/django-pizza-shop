@@ -5,7 +5,7 @@ Sample Project to create api for Pizza Order CRUD Operations
 ## Installation
 
 ```
-https://github.com/aniket-dg/django-pizza-shop.git
+git clone https://github.com/aniket-dg/django-pizza-shop.git
 ```
 
 Create VirtualEnv and Activate it
