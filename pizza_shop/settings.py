@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pizza-shop',
-        'USER': 'postgres',
-        'PASSWORD': 'maya',
+        'USER': '<your_database_username>',
+        'PASSWORD': '<your_password>',
         'HOST': 'localhost',
     }
 }
