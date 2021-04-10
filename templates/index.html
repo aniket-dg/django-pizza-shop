@@ -6,6 +6,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </head>
 <body>
+	{% load crispy_forms_tags %}
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Pizza Shop</a>
@@ -48,155 +49,19 @@
                       {% csrf_token %}
                     <div class="row mt-3">
                       <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Pizza Type</label>
-                          <select class="form-select mt-2" name="pizza_type">
-  							<option selected value="Margherita">Margherita</option>
-  							<option value="Double Cheese Margherita">Double Cheese Margherita</option>
-  							<option value="Farm House">Farm House</option>
-  							<option value="Peppy Paneer">Peppy Paneer</option>
-  							<option value="Mexican Green Wave">Mexican Green Wave</option>
-  							<option value="Deluxe Veggie">Deluxe Veggie</option>
-  							<option value="Veg Extravaganza">Veg Extravaganza</option>
-  							<option value="Cheese N Corn">Cheese N Corn</option>
-  							<option value="Paneer Makhni">Paneer Makhni</option>
-  							<option value="Veggi Paradise">Veggi Paradise</option>
-  							<option value="Fresh Veggie">Fresh Veggie</option>
-  							<option value="Indi Tandoori Paneer">Indi Tandoori Paneer</option>
-  							<option value="Chicken Golden Delight">Chicken Golden Delight</option>
-  							<option value="Non Veg Supreme">Non Veg Supreme</option>
-						</select>
-                        </div>
+                        {{ form1.pizza_type|as_crispy_field }}
                       </div>
                     </div>
 
                     <div class="row mt-3">
                     	<div class="col-md-6">
-                    		<div class="form-group">
-                    	  <label class="bmd-label-floating">Pizza Size</label>
-                          <select class="form-select mt-2" name="pizza_size">
-                          	<option selected value="Small-8/20 cm">Small-8/20 cm</option>
-                          	<option value="Medium-10/25 cm">Medium-10/25 cm</option>
-                          	<option value="Large-12/30 cm">Large-12/30 cm</option>
-                          	<option value="X-Large-16/40 cm">X-Large-16/40 cm</option>
-                          	<option value="Italian-12/30 cm">Italian-12/30 cm</option>
-                          	<option value="Large-14/35 cm">Large-14/35 cm</option>
-                          	<option value="Family XXL-16/40cm">Family XXL-16/40cm</option>
-                          </select>
-						</div>
+                    		{{ form1.pizza_size|as_crispy_field }}
                     	</div>
                     </div>
 
-
-                    <div class="row mt-3">
+					<div class="row mt-3">
                     	<div class="col-md-12">
-                    		<div class="form-group">
-                    	  <label class="bmd-label-floating mb-2">Toppings</label>
-                    	  <br>
-                    	  <div class="row">
-                    	  <div class="col-md-6">
-                    	  <div class="checkgroup">
-                          <input class="form-check-input" value="0" type="checkbox" checked>
-  						<label class="form-check-label">
-    					Black Olives
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="1" type="checkbox">
-  						<label class="form-check-label">
-    					Crisp Capsicum
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="2" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Paneer
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="3" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Mushroom
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="4" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Golden Corn
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="5" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Fresh Tomato
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="6" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Jalapeno
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="7" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Red Pepper
-  						</label>
-  						</div>
-  						</div>
-
-  						<div class="col-md-6">
-  							<div class="checkgroup">
-                          <input class="form-check-input" value="8" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Babycorn
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="9" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Italian sausage
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="10" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Italian-style pork topping
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="11" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Pork topping
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="12" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Beef topping
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="13" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Sliced pork roll
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="14" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Quartered ham
-  						</label>
-  						</div>
-  						<div class="checkgroup">
-                          <input class="form-check-input" value="15" name="toppings[]" type="checkbox">
-  						<label class="form-check-label">
-    					Bacon
-  						</label>
-  						</div>
-  						</div>
-  						</div>
-						</div>
+                    		{{ form1.toppings|as_crispy_field }}
                     	</div>
                     </div>
 
@@ -204,14 +69,7 @@
                     <div class="row mt-3">
                     	<div class="col-md-6">
                     		<div class="form-group">
-                    	  <label class="bmd-label-floating">Cheese</label>
-                          <select class="form-select mt-2" name="cheese">
-                          	<option selected value="0"> 10 ounces</option>
-                          	<option value="1">8 ounces</option>
-                          	<option value="2">6 ounces</option>
-                          	<option value="3">3 ounces</option>
-                          	<option value="4">2 ounces</option>
-                          	</select>
+							{{ form1.cheese|as_crispy_field }}
 						</div>
                     	</div>
                     </div>
@@ -219,19 +77,13 @@
 
                      <div class="row mt-3">
                     	<div class="col-md-6">
-                    		<div class="form-group">
-                    	  <label class="bmd-label-floating">No. of Pizza</label>
-                          <input type="number" class="form-control mt-2" name="no_of_pizza">
-						</div>
+							{{ form1.no_of_pizza|as_crispy_field }}
                     	</div>
                     </div>
 
                     <div class="row mt-3">
                     	<div class="col-md-6">
-                    		<div class="form-group">
-                    	  <label class="bmd-label-floating">Customer Name</label>
-                          <input type="text" class="form-control mt-2" name="cust_name">
-						</div>
+							{{ form1.cust_name|as_crispy_field }}
                     	</div>
                     </div>
 
