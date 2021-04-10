@@ -64,3 +64,5 @@ class Order(models.Model):
 
     def __str__(self):
         return self.cust_name
+    class Meta:
+        ordering = ['id']

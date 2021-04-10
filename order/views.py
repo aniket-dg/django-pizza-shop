@@ -13,6 +13,8 @@ def orderGenerate(request):
             order = orderData.save()
             messages.success(request, "Order Placed Successfully. Your order id is {id}".format(id = order.id))
             return redirect('/shop')
+        messages.warning(request, orderData.errors)
+        return redirect('/shop')
     else:
         form1 = OrderForm(initial={ 'toppings':'Black Olives' })
         return render(request, 'index.html', { 'form1': form1 })
