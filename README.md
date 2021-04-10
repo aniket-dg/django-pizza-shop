@@ -32,7 +32,7 @@ Start the Project
 ```
 python manage.py runserver
 ```
-Go to the [localhost](127.0.0.1:8000/)
+Go to the [localhost](http://127.0.0.1:8000/)
 
 ## Documentation
 
