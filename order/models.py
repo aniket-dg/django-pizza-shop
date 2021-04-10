@@ -1,24 +1,6 @@
 from django.db import models
+from multiselectfield import MultiSelectField
 
-'''    
-class Toppings(models.Model):
-    black_olives = models.BooleanField(default=True)
-    crisp_capsicum = models.BooleanField(default=False)
-    paneer = models.BooleanField(default=False)
-    mushroom = models.BooleanField(default=False)
-    golden_corn = models.BooleanField(default=False)
-    fresh_tomato = models.BooleanField(default=False)
-    jalapeno = models.BooleanField(default=False)
-    red_pepper = models.BooleanField(default=False)
-    babycorn = models.BooleanField(default=False)
-    italian_sausage = models.BooleanField(default=False)
-    italian_style_pork_topping = models.BooleanField(default=False)
-    pork_topping = models.BooleanField(default=False)
-    beef_topping = models.BooleanField(default=False)
-    sliced_pork_roll = models.BooleanField(default=False)
-    quartered_ham = models.BooleanField(default=False)
-    bacon = models.BooleanField(default=False)
-'''
 class Order(models.Model):
     pizza_type_choices = [
         ('Margherita', 'Margherita'),
@@ -54,9 +36,30 @@ class Order(models.Model):
         ('2 Ounces', '2 Ounces'),
     ]
 
+    toppings_choices = (
+        ('black_olives', 'Black Olives'),
+        ('crisp_capsicum', 'Crisp Capsicum'),
+        ('paneer', 'Paneer'),
+        ('mushroom', 'Mushroom'),
+        ('golden_corn', 'Golden Corn'),
+        ('fresh_tomato', 'Fresh Tomato'),
+        ('jalapeno', 'Jalapeno'),
+        ('red_pepper', 'Red Pepper'),
+        ('babycorn', 'Baby Corn'),
+        ('italian_sausage', 'Italian Sausage'),
+        ('italian_style_pork_topping','Italian Style Pork Topping'),
+        ('pork_topping', 'Pork Topping'),
+        ('beef_topping', 'Beef Topping'),
+        ('sliced_pork_roll', 'Sliced Pork Roll'),
+        ('quartered_ham', 'Quartered Ham'),
+        ('bacon', 'Bacon'),
+        
+    )
+
+    
     pizza_type = models.CharField(max_length=30, choices=pizza_type_choices, default='Margherita')
     pizza_size = models.CharField(max_length=30, choices=pizza_size_choices, default='Small-8"/20 cm')
-    toppings = models.JSONField()
+    toppings = MultiSelectField(choices=toppings_choices)
     cheese = models.CharField(max_length=30, choices=cheese_choices ,default='10 Ounces')
     no_of_pizza = models.IntegerField(primary_key=False, default=1)
     cust_name = models.CharField(max_length=30, blank=True, null= True)
